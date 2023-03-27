@@ -2,11 +2,18 @@
   "name": "klee-atlas",
   "version": "0.0.0",
   "scripts": {
+    
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+
+    "atlas:start": "ng serve --project=klee-atlas -o",
+    "atlas:build": "ng build --project=klee-atlas",
+    "atlas:test": "ng test --project=klee-atlas",
+    "atlas:doc": "compodoc -p ./projects/klee-atlas/tsconfig.doc.json -s -o --output ./documentation/klee-atlas --disableCoverage",
+
+    "klee:build": "ng build --project=klee",
+    "preklee:pack": "npm run klee:build",
+    "klee:pack": "npm pack ./dist/klee",
+    "klee:test": "ng test --project=klee"
   },
   "private": true,
   "dependencies": {
@@ -18,6 +25,9 @@
     "@angular/platform-browser": "^15.1.0",
     "@angular/platform-browser-dynamic": "^15.1.0",
     "@angular/router": "^15.1.0",
+    "@compodoc/compodoc": "^1.1.19",
+    "primeicons": "^6.0.1",
+    "primeng": "^15.2.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
@@ -33,6 +43,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "ng-packagr": "^15.1.0",
     "typescript": "~4.9.4"
   }
 }

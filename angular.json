@@ -5,27 +5,35 @@
   "projects": {
     "klee-atlas": {
       "projectType": "application",
-      "schematics": {},
-      "root": "",
-      "sourceRoot": "src",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/klee-atlas",
+      "sourceRoot": "projects/klee-atlas/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/klee-atlas",
-            "index": "src/index.html",
-            "main": "src/main.ts",
+            "index": "projects/klee-atlas/src/index.html",
+            "main": "projects/klee-atlas/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "tsconfig.app.json",
+            "tsConfig": "projects/klee-atlas/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/klee-atlas/src/favicon.ico",
+              "projects/klee-atlas/src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "projects/klee-atlas/src/styles.scss"
             ],
             "scripts": []
           },
@@ -81,15 +89,49 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "tsconfig.spec.json",
+            "tsConfig": "projects/klee-atlas/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "projects/klee-atlas/src/favicon.ico",
+              "projects/klee-atlas/src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "projects/klee-atlas/src/styles.scss"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "klee": {
+      "projectType": "library",
+      "root": "projects/klee",
+      "sourceRoot": "projects/klee/src",
+      "prefix": "klee",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/klee/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/klee/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/klee/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/klee/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
