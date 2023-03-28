@@ -1,15 +1,16 @@
 <klee-layout-base>
     <klee-layout-header>AUTH</klee-layout-header>
-    
+
     <klee-layout-main>
 
-    <router-outlet></router-outlet>
-
-    <!--     
-        <app-auth-login></app-auth-login>
-        <app-auth-register></app-auth-register>
-     -->
-        
+        <router-outlet></router-outlet>
+    
     </klee-layout-main>
+
+    <klee-layout-menu>
+        <app-auth-navigation></app-auth-navigation>
+        
+        <router-outlet name="navigation"></router-outlet>
+    </klee-layout-menu>
 
 </klee-layout-base>

@@ -4,12 +4,14 @@ import { FeatAuthComponent } from './feat-auth.component';
 import { AuthLoginComponent } from './components/auth-login/auth-login.component';
 import { AuthRegisterComponent } from './components/auth-register/auth-register.component';
 import { SharedModule } from '../../shared/shared.module';
+import { AuthNavigationComponent } from './components/auth-navigation/auth-navigation.component';
 
 @NgModule({
   declarations: [
     FeatAuthComponent,
     AuthLoginComponent,
-    AuthRegisterComponent
+    AuthRegisterComponent,
+    AuthNavigationComponent
   ],
   imports: [
     SharedModule,

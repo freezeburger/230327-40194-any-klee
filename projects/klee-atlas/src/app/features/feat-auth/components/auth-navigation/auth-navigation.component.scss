@@ -1,0 +1,20 @@
+:host{
+    font-family: Arial;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    display: block;
+    margin:5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+}
+
+a.active{
+    background: var(--primary-600);
+    color:white;
+}
