@@ -9,8 +9,11 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "paths": {
-      "klee": [
+      "@klee": [
         "dist/klee"
+      ],
+      "klee": [
+        "projects/klee/src/public-api.ts"
       ]
     },
     "noImplicitReturns": true,

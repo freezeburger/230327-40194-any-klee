@@ -105,6 +105,11 @@
     },
     "klee": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "projects/klee",
       "sourceRoot": "projects/klee/src",
       "prefix": "klee",

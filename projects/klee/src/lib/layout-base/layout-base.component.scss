@@ -1,0 +1,29 @@
+body{
+    margin:0;
+}
+
+
+klee-layout-base{
+    display: block;
+    height: 100vh;
+    width: 100vw;
+}
+
+klee-layout-base>header{
+    height: 10vh;
+    background: var(--primary-600);
+}
+
+klee-layout-base>main{
+    height: 80vh;
+}
+
+klee-layout-base>footer{
+    height: 10vh;
+    background: var(--bluegray-600);
+}
+
+klee-layout-base>aside{
+    display: none;
+    height: 100vh;
+}

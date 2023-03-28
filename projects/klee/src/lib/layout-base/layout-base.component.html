@@ -1,0 +1,48 @@
+<ng-container [ngTemplateOutlet]="largeHeader ? headerLargeTpl : headerTpl"></ng-container>
+
+<ng-container [ngTemplateOutlet]="mainTpl"></ng-container>
+
+<ng-container [ngTemplateOutlet]="footerTpl"></ng-container>
+
+<ng-container [ngTemplateOutlet]="menuTpl"></ng-container>
+
+
+<!-- Header Part -->
+<ng-template #headerLargeTpl>
+    <header>
+        <h1>Klee</h1>
+        <ng-content select="klee-layout-header,layout-header"></ng-content>
+    </header>
+</ng-template>
+
+<!-- Header Part -->
+<ng-template #headerTpl>
+    <header>
+        <ng-content select="klee-layout-header,layout-header"></ng-content>
+    </header>
+</ng-template>
+
+<!-- Main Part -->
+<ng-template #mainTpl>
+<main>
+    <ng-content></ng-content>
+</main>
+</ng-template>
+
+<!-- Footer Part -->
+<ng-template #footerTpl>
+<footer *ngIf="footer">
+    <ng-content select="klee-layout-footer,layout-footer"></ng-content>
+</footer>
+</ng-template>
+
+<!-- Menu Part -->
+<ng-template #menuTpl>
+<p-sidebar [(visible)]="sideMenuVisible">
+
+    <aside>
+        <ng-content select="klee-layout-menu,layout-menu"></ng-content>
+    </aside>
+    
+</p-sidebar>
+</ng-template>

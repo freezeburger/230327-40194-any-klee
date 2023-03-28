@@ -12,7 +12,7 @@
 
     "klee:build": "ng build --project=klee",
     "preklee:pack": "npm run klee:build",
-    "klee:pack": "npm pack ./dist/klee",
+    "klee:pack": "cd ./distributions && npm pack ../dist/klee && cd ..",
     "klee:test": "ng test --project=klee"
   },
   "private": true,
