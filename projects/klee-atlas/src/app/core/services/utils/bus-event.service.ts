@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
+import { BusEventType } from '../../interfaces/util-bus-event';
 
 
 @Injectable()
-export class BusEventService {
+export class BusEventService extends EventEmitter<BusEventType>{
 
-  constructor() { }
+  rnd = Math.random()
 }
