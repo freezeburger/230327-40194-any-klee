@@ -13,9 +13,15 @@ import {
   styleUrls: ['./auth-login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AuthLoginComponent implements OnChanges {
+export class AuthLoginComponent {
 
-  count = 0;
+  public credentials = {
+    email:'',
+    password:'X'
+  }
+
+
+  /* count = 0;
   constructor(
     private cd: ChangeDetectorRef
   ) {
@@ -54,5 +60,5 @@ export class AuthLoginComponent implements OnChanges {
 
   ngOnDestroy() {
     console.log('4. Suppression')
-  }
+  } */
 }

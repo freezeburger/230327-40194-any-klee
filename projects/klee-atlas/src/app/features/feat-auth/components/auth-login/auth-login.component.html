@@ -1,9 +1,33 @@
 <!-- input*2+button -->
 
+<!-- 
+    touched / untouched
+    pristine / dirty
+    valid / invalid
+ -->
+
 <div>
-    <form>
-        <input type="text" placeholder="Email" name="email">
-        <input type="text" placeholder="Password"  name="password">
+    <pre>
+        valid : {{ loginForm.valid }}
+        touched : {{ loginForm.touched }}
+        pristine : {{ loginForm.pristine }}
+    </pre>
+    <hr>
+    <pre> {{ credentials | json }} </pre>
+    <form #loginForm="ngForm">
+        <input type="text" 
+              placeholder="Email" 
+              name="email" 
+              [(ngModel)]="credentials.email"
+              minlength="3"
+              required>
+
+        <input type="text" 
+              placeholder="Password"  
+              name="password"
+              [ngModel]="credentials.password"
+              (ngModelChange)=" credentials.password = $event "
+              >
         <button>Login</button>
     </form>
 </div>

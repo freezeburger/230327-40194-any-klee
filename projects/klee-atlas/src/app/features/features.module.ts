@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
     /* FeatAuthModule, */
     /* FeatMessageModule,
     FeatNewsModule */
