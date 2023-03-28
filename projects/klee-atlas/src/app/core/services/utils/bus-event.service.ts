@@ -5,5 +5,6 @@ import { BusEventType } from '../../interfaces/util-bus-event';
 @Injectable()
 export class BusEventService extends EventEmitter<BusEventType>{
 
-  rnd = Math.random()
+  rnd = Math.random();
+
 }
