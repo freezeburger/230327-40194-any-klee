@@ -14,4 +14,8 @@ import { FeatMessageComponent } from './feat-message.component';
     FeatMessageRoutingModule
   ]
 })
-export class FeatMessageModule { }
+export class FeatMessageModule { 
+  constructor() {
+    console.warn('Modules Time !', this)
+  }
+}

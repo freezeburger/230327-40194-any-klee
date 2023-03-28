@@ -1,23 +1,36 @@
-import { Component , OnChanges, SimpleChanges } from '@angular/core';
+
+import {
+  Component,
+  OnChanges,
+  SimpleChanges,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef
+} from '@angular/core';
 
 @Component({
   selector: 'app-auth-login',
   templateUrl: './auth-login.component.html',
-  styleUrls: ['./auth-login.component.scss']
+  styleUrls: ['./auth-login.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthLoginComponent implements OnChanges {
 
   count = 0;
-  constructor() {
+  constructor(
+    private cd: ChangeDetectorRef
+  ) {
     console.log('1. Instanciation')
-    setInterval( this.tick  , 1000 )
+    setInterval(this.tick, 1000)
   }
 
+  noop = () => {}
+
   tick = () => {
-    this.count = this.count +1
+    this.count = this.count + 1
+    if( ! (this.count % 3) ) this.cd.markForCheck();
   }
-  
-  ngOnChanges( changes:SimpleChanges){
+
+  ngOnChanges(changes: SimpleChanges) {
     console.log('MAJ des Input')
   }
 
@@ -29,12 +42,12 @@ export class AuthLoginComponent implements OnChanges {
     console.log('3. Modification')
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     // Only Once
     console.log('3.3 Template Initialisation')
   }
 
-  ngContentInit(){
+  ngContentInit() {
     // Only Once
     console.log('3.3 Template Initialisation')
   }

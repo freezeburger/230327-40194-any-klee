@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //import { FeatAuthModule } from './feat-auth/feat-auth.module';
-import { FeatMessageModule } from './feat-message/feat-message.module';
-import { FeatNewsModule } from './feat-news/feat-news.module';
+// import { FeatMessageModule } from './feat-message/feat-message.module';
+// import { FeatNewsModule } from './feat-news/feat-news.module';
 
 
 @NgModule({
@@ -10,8 +10,12 @@ import { FeatNewsModule } from './feat-news/feat-news.module';
   imports: [
     CommonModule,
     /* FeatAuthModule, */
-    FeatMessageModule,
-    FeatNewsModule
+    /* FeatMessageModule,
+    FeatNewsModule */
   ]
 })
-export class FeaturesModule { }
+export class FeaturesModule {
+   constructor() {
+    console.warn('Modules Time !', this)
+  }
+ }

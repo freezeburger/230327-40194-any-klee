@@ -14,4 +14,8 @@ import { FeatNewsComponent } from './feat-news.component';
     FeatNewsRoutingModule
   ]
 })
-export class FeatNewsModule { }
+export class FeatNewsModule {
+  constructor() {
+    console.warn('Modules Time !', this)
+  }
+}

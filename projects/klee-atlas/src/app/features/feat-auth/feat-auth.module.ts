@@ -18,4 +18,8 @@ import { AuthNavigationComponent } from './components/auth-navigation/auth-navig
     FeatAuthRoutingModule
   ]
 })
-export class FeatAuthModule { }
+export class FeatAuthModule {
+  constructor() {
+    console.warn('Modules Time !', this)
+  }
+ }
