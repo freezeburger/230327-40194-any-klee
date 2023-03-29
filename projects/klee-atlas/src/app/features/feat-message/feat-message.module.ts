@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { FeatMessageRoutingModule } from './feat-message-routing.module';
 import { FeatMessageComponent } from './feat-message.component';
+import { MessageEditorComponent } from './components/message-editor/message-editor.component';
 
 
 @NgModule({
   declarations: [
-    FeatMessageComponent
+    FeatMessageComponent,
+    MessageEditorComponent
   ],
   imports: [
     CommonModule,
