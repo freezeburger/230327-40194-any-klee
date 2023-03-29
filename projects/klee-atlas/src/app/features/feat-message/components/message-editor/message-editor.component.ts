@@ -1,4 +1,5 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, inject} from '@angular/core';
+import { MessageEditorService } from '../../services/message-editor.service';
 
 @Component({
   selector: 'app-message-editor',
@@ -7,4 +8,9 @@ import { Component, Input} from '@angular/core';
 })
 export class MessageEditorComponent {
   @Input() messageId:number | null = null;
+  editor = inject(MessageEditorService)
+
+  ngOnInit(){
+    console.log(this.editor)
+  }
 }
