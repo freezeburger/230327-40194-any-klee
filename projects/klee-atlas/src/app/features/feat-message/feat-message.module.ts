@@ -5,6 +5,7 @@ import { FeatMessageRoutingModule } from './feat-message-routing.module';
 import { FeatMessageComponent } from './feat-message.component';
 import { MessageEditorComponent } from './components/message-editor/message-editor.component';
 import { SharedModule } from '../../shared/shared.module';
+import { MessageManagerService } from './services/message-manager.service';
 
 
 @NgModule({
@@ -15,10 +16,15 @@ import { SharedModule } from '../../shared/shared.module';
   imports: [
     SharedModule,
     FeatMessageRoutingModule
+  ],
+  providers:[
+    MessageManagerService
   ]
 })
 export class FeatMessageModule { 
-  constructor() {
-    console.warn('Modules Time !', this)
+  constructor(
+    messageManager:MessageManagerService
+  ) {
+    console.warn('Modules Time !', messageManager )
   }
 }
