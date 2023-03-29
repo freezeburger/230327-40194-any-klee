@@ -16,7 +16,7 @@ export class MessageManagerService {
     private http: HttpClient
   ) { }
 
-  getMessagesId() {
+  getMessagesId():void {
     this.http
       .get<KMessageDTO[]>(API)
       .pipe(

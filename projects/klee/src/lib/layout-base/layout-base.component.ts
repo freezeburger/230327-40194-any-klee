@@ -23,4 +23,5 @@ export class LayoutBaseComponent {
   ngAfterViewInit(){
     console.log( this.footer )
   }
+  
 }

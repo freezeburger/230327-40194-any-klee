@@ -3,9 +3,11 @@
 
     <klee-layout-main>
 
-
-        <h1>Message List </h1>
-        <hr>
+        <ng-container *ngIf=" (messageManager.messageIdList$ | async ) as idList ">
+                <h1>Message List  </h1>
+                <hr>
+                <pre>{{ idList | json }} </pre>
+        </ng-container>
 
     </klee-layout-main>
 

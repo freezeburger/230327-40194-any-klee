@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component , OnInit} from '@angular/core';
+import { MessageManagerService } from './services/message-manager.service';
 
 @Component({
   selector: 'app-feat-message',
@@ -6,6 +7,13 @@ import { Component } from '@angular/core';
   styles: [
   ]
 })
-export class FeatMessageComponent {
+export class FeatMessageComponent implements OnInit {
 
+  constructor(
+    public messageManager:MessageManagerService
+  ){}
+
+  ngOnInit(){
+    this.messageManager.getMessagesId();
+  }
 }
