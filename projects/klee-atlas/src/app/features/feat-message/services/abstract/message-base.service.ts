@@ -18,7 +18,13 @@ export abstract class MessageBaseService {
   ) { }
 
   protected save(message:KMessageDTO){
-    //this.http.put()
+
+    const id = this.message$.value?.id;
+    const dtoId = message.id;
+    if( ! id || id !== dtoId ) return;
+
+    const url = `${API}/${id}`
+    this.http.put<KMessageDTO>(url, message).subscribe( m => this.message$.next(m) )
   }
 
   protected create(){

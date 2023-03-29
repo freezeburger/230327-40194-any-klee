@@ -31,6 +31,10 @@ export class MessageEditorComponent {
 
   private sub$ = this.editor.message$.subscribe( m => this.form.patchValue( m as any) )
 
+  edit(){
+    this.editor.edit(this.form.value as KMessageDTO)
+  }
+  
   ngAfterViewInit(changes:SimpleChanges){
     this.editor.init(this.messageId);
   }
