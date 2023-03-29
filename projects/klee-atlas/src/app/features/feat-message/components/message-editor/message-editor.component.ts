@@ -1,4 +1,5 @@
-import { Component, Input, inject, Self, SkipSelf} from '@angular/core';
+import { Component, Input, inject, Self, SkipSelf, OnChanges} from '@angular/core';
+import { KMessageDTO } from '../../interfaces/k-message.dto';
 import { MessageEditorService } from '../../services/message-editor.service';
 
 @Component({
@@ -9,14 +10,14 @@ import { MessageEditorService } from '../../services/message-editor.service';
     MessageEditorService
   ]
 })
-export class MessageEditorComponent {
-  @Input() messageId:number | null = null;
+export class MessageEditorComponent implements OnChanges{
+  @Input() messageId?:KMessageDTO['id'];
   
   constructor(
     @Self() public editor:MessageEditorService,
   ){}
 
-  ngOnInit(){
-    console.log( this.editor )
+  ngOnChanges(){
+    this.editor.init(this.messageId)
   }
 }
