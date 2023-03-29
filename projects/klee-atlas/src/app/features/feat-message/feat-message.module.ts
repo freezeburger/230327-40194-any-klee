@@ -6,6 +6,8 @@ import { FeatMessageComponent } from './feat-message.component';
 import { MessageEditorComponent } from './components/message-editor/message-editor.component';
 import { SharedModule } from '../../shared/shared.module';
 import { MessageManagerService } from './services/message-manager.service';
+import { MessageEditorService } from './services/message-editor.service';
+import { MessageBaseService } from './services/abstract/message-base.service';
 
 
 @NgModule({
@@ -18,7 +20,7 @@ import { MessageManagerService } from './services/message-manager.service';
     FeatMessageRoutingModule
   ],
   providers:[
-    MessageManagerService
+    MessageManagerService 
   ]
 })
 export class FeatMessageModule { 

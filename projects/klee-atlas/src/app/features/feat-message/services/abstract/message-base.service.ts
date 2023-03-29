@@ -4,15 +4,13 @@ import { BehaviorSubject } from 'rxjs';
 import { KMessageDTO } from '../../interfaces/k-message.dto';
 import { API } from '../values/api';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export abstract class MessageBaseService {
 
   private readonly  API = API;
 
-  message$ = new BehaviorSubject<KMessageDTO |null>(null);
-  status$ = new BehaviorSubject<any>(null);
+  public message$ = new BehaviorSubject<KMessageDTO |null>(null);
+  public status$ = new BehaviorSubject<any>(null);
   
   constructor(
     private http:HttpClient
