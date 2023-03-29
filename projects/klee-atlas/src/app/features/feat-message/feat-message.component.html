@@ -3,6 +3,8 @@
 
     <klee-layout-main>
 
+        <button (click)="saveAll()"> Save All </button>
+
         <ng-container *ngIf=" (messageManager.messageIdList$ | async ) as idList ">
                 <h1>Message List  </h1>
                 <hr>

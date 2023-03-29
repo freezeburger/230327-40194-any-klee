@@ -19,7 +19,7 @@ export abstract class MessageBaseService {
     private http:HttpClient,
     @Optional() @Inject(MSG_BUS_EVENT) private bus:EventEmitter<BusEventType>
   ) { 
-    if (this.bus) this.bus.subscribe( event => console.log(event) )
+    if (this.bus) this.bus.subscribe( event => console.table(event) )
   }
 
   protected save(message:KMessageDTO){
