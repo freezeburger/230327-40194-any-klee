@@ -1,0 +1,18 @@
+{
+    "messages":[
+        {
+            "id":1,
+            "creation":1680078010351,
+            "priority":"HIGH",
+            "title":"I am a message TITILE 1",
+            "content":"I am a message CONTENT 1"
+        },
+        {
+            "id":2,
+            "creation":1680078010351,
+            "priority":"MEDIUM",
+            "title":"I am a message TITILE 2",
+            "content":"I am a message CONTENT 2"
+        }
+    ]
+}
