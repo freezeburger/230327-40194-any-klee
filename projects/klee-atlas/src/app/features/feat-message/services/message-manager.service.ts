@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, Inject } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class MessageManagerService {
 
   constructor(
-    @Inject
+    // @Inject(HttpClient) private http:HttpClient,
+    private http:HttpClient
   ) { }
 }
