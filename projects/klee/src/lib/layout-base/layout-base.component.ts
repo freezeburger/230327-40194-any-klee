@@ -11,7 +11,7 @@ import { LayoutFooterComponent } from './layout-containers.component';
 export class LayoutBaseComponent {
  
   @Input() public largeHeader = false;
-  @Input() public sideMenuVisible = true;
+  @Input() public sideMenuVisible = false;
 
   @ContentChild(LayoutFooterComponent) public footer:LayoutFooterComponent | null = null;
 
