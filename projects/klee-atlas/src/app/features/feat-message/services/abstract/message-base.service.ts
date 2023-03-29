@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { KMessageDTO } from '../../interfaces/k-message.dto';
+import { KMessageDTO, KMessageNEW } from '../../interfaces/k-message.dto';
 import { API } from '../values/api';
+import { Priorities } from '../values/priorities.enum';
 
 @Injectable()
 export abstract class MessageBaseService {
@@ -21,7 +22,14 @@ export abstract class MessageBaseService {
   }
 
   protected create(){
-    //this.http.post()
+    const url = `${API}`
+    const msg:KMessageNEW = {
+      content:'',
+      title:'',
+      priority:Priorities.LOW,
+      creation:Date.now(),
+    }
+    this.http.post<KMessageDTO>(url, msg).subscribe( m => this.message$.next( m ) )
   }
 
   protected load(id:KMessageDTO['id']){

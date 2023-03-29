@@ -3,12 +3,12 @@
 <code>{{editor.status$ | async  | json}}</code>
 
 
-<form>
-    <select name="priority">
+<form [formGroup]="form">
+    <select name="priority" formControlName="priority">
         <option *ngFor="let p of priorities | keyvalue">{{p.value}}</option>
     </select>
-    <input name="title">
-    <textarea name="content"></textarea>
+    <input name="title" formControlName="title">
+    <textarea name="content" formControlName="content"></textarea>
     <button>
         Save
     </button>
