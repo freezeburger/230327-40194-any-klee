@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Inject, Injectable, Optional } from '@angular/core';
 import { BusEventType } from '../../../../core/interfaces/util-bus-event';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, filter } from 'rxjs';
 import { KMessageDTO, KMessageNEW } from '../../interfaces/k-message.dto';
 import { API } from '../values/api';
 import { MSG_BUS_EVENT } from '../values/msg-bus-event.token';
@@ -19,7 +19,12 @@ export abstract class MessageBaseService {
     private http:HttpClient,
     @Optional() @Inject(MSG_BUS_EVENT) private bus:EventEmitter<BusEventType>
   ) { 
-    if (this.bus) this.bus.subscribe( event => console.table(event) )
+    if (this.bus) this.bus
+                      .pipe( 
+                        filter(e => e.type === 'MSG_SAVE_ALL' ),
+                        filter( () => this.message$.value !== null ) 
+                      )
+                      .subscribe( () => this.save( this.message$.value as  KMessageDTO ) )
   }
 
   protected save(message:KMessageDTO){

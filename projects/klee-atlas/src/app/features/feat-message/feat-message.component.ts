@@ -23,6 +23,6 @@ export class FeatMessageComponent implements OnInit {
   }
 
   saveAll(){
-    this.bus?.emit({ type: 'HELLO', payload: null })
+    this.bus?.emit({ type: 'MSG_SAVE_ALL', payload: null })
   }
 }
