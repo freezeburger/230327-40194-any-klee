@@ -7,6 +7,9 @@
                 <h1>Message List  </h1>
                 <hr>
                 <pre>{{ idList | json }} </pre>
+
+                <app-message-editor *ngFor="let id of idList" [messageId]="id"></app-message-editor>
+
         </ng-container>
 
     </klee-layout-main>

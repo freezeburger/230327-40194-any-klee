@@ -9,7 +9,7 @@ import { BehaviorSubject, tap, map } from 'rxjs';
 @Injectable()
 export class MessageManagerService {
 
-  messageIdList$ = new BehaviorSubject<number[]>([])
+  messageIdList$ = new BehaviorSubject<KMessageDTO['id'][]>([])
 
   constructor(
     // @Inject(HttpClient) private http:HttpClient,
@@ -26,7 +26,7 @@ export class MessageManagerService {
       .subscribe( this.emitNextIds )
   }
 
-  private emitNextIds = ( ids:number[]  ) => {
+  private emitNextIds = ( ids:KMessageDTO['id'][] ) => {
     this.messageIdList$.next(ids)
   }
 
@@ -36,7 +36,7 @@ export class MessageManagerService {
     console.groupEnd()
   }
 
-  private mapToIds = ( data : KMessageDTO[]):number[] => {
+  private mapToIds = ( data : KMessageDTO[]):KMessageDTO['id'][] => {
     return data.map( m => m.id );
   }
 
