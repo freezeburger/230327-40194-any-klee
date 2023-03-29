@@ -14,13 +14,18 @@
     </pre>
     <hr>
     <pre> {{ credentials | json }} </pre>
+    
     <form #loginForm="ngForm">
+        
         <input type="text" 
               placeholder="Email" 
               name="email" 
               [(ngModel)]="credentials.email"
               minlength="3"
-              required>
+              required
+              #emailField="ngModel">
+
+              {{emailField.errors | json }}
 
         <input type="text" 
               placeholder="Password"  

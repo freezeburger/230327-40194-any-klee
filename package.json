@@ -7,11 +7,13 @@
     "atlas:build": "ng build --project=klee-atlas",
     "atlas:test": "ng test --project=klee-atlas",
     "atlas:doc": "compodoc -p ./projects/klee-atlas/tsconfig.doc.json -s -o --output ./documentation/klee-atlas --disableCoverage",
+    "preatlas:stats":"ng build --project=klee-atlas --stats-json",
+    "atlas:stats":"webpack-bundle-analyzer ./dist/klee-atlas/stats.json",
     "klee:build": "ng build --project=klee",
     "preklee:pack": "npm run klee:build",
     "klee:pack": "cd ./distributions && npm pack ../dist/klee && cd ..",
     "klee:test": "ng test --project=klee",
-    "gen":"npx ng-swagger-gen -i ./swagger/api.json -o ./swagger/generated"
+    "gen": "npx ng-swagger-gen -i ./swagger/api.json -o ./swagger/generated"
   },
   "private": true,
   "dependencies": {
@@ -23,8 +25,6 @@
     "@angular/platform-browser": "^15.1.0",
     "@angular/platform-browser-dynamic": "^15.1.0",
     "@angular/router": "^15.1.0",
-    "@compodoc/compodoc": "^1.1.19",
-    "ng-swagger-gen": "^2.3.1",
     "primeicons": "^6.0.1",
     "primeng": "^15.2.1",
     "rxjs": "~7.8.0",
@@ -32,6 +32,9 @@
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
+    "@compodoc/compodoc": "^1.1.19",
+    "ng-swagger-gen": "^2.3.1",
+    "webpack-bundle-analyzer": "^4.8.0",
     "@angular-devkit/build-angular": "^15.1.5",
     "@angular/cli": "~15.1.5",
     "@angular/compiler-cli": "^15.1.0",

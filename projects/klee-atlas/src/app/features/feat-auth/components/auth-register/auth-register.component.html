@@ -5,14 +5,22 @@
         pristine : {{ loginForm.pristine }}
     </pre>
     <hr>
+    <pre>
+        {{ loginForm.controls.email.errors | json }}
+    </pre>
+    <hr>
     <pre> {{ loginForm.value | json }} </pre>
-    
+
     <form [formGroup]="loginForm">
         
         <input type="text" 
                placeholder="Email" 
                name="email"
                formControlName="email">
+
+        <div *ngIf="loginForm.controls.email.errors as errors">
+            {{ errors['kleeEmail']?.message }}
+        </div>
 
         <input type="text" 
                placeholder="Password"  
