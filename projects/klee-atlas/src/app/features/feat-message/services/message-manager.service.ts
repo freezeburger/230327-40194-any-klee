@@ -26,7 +26,7 @@ export class MessageManagerService {
       .subscribe( this.emitNextIds )
   }
 
-  private emitNextIds = ( ids:KMessageDTO['id'][] ) => {
+  private emitNextIds = ( ids:Array<KMessageDTO['id']> ) => {
     this.messageIdList$.next(ids)
   }
 
@@ -36,7 +36,7 @@ export class MessageManagerService {
     console.groupEnd()
   }
 
-  private mapToIds = ( data : KMessageDTO[]):KMessageDTO['id'][] => {
+  private mapToIds = ( data : KMessageDTO[]):Array<KMessageDTO['id']> => {
     return data.map( m => m.id );
   }
 
