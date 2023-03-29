@@ -17,6 +17,7 @@ export abstract class MessageBaseService {
   
   constructor(
     private http:HttpClient,
+    @Optional() @Inject(MSG_BUS_EVENT) private bus: EventEmitter<BusEventType>
   ) { 
 
   }
@@ -29,7 +30,11 @@ export abstract class MessageBaseService {
     if( ! id || id !== dtoId ) return;
 
     const url = `${API}/${id}`
-    this.http.put<KMessageDTO>(url, message).subscribe( m => this.message$.next(m) )
+    this.http.put<KMessageDTO>(url, message).subscribe( 
+      m => {
+        this.message$.next(m) 
+        this.bus?.emit({type:'MESSAGE_UPDATED',payload: m })
+      })
   }
 
   protected create(){
