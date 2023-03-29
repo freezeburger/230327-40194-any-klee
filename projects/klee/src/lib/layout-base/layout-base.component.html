@@ -1,4 +1,4 @@
-<ng-container [ngTemplateOutlet]="largeHeader ? headerLargeTpl : headerTpl"></ng-container>
+<ng-container [ngTemplateOutlet]="headerTpl"></ng-container>
 
 <ng-container [ngTemplateOutlet]="mainTpl"></ng-container>
 
@@ -8,41 +8,43 @@
 
 
 <!-- Header Part -->
-<ng-template #headerLargeTpl>
-    <header>
+<!-- <ng-template #headerLargeTpl>
+    <header *ngIf="largeHeader">
         <h1>Klee</h1>
-        <ng-content select="klee-layout-header,layout-header"></ng-content>
+        <ng-content  select="klee-layout-header,layout-header"></ng-content>
     </header>
-</ng-template>
+</ng-template> -->
 
 <!-- Header Part -->
 <ng-template #headerTpl>
     <header>
-        <ng-content select="klee-layout-header,layout-header"></ng-content>
+        <h1>
+            <ng-content select="klee-layout-header,layout-header"></ng-content>
+        </h1>
     </header>
 </ng-template>
 
 <!-- Main Part -->
 <ng-template #mainTpl>
-<main>
-    <ng-content></ng-content>
-</main>
+    <main>
+        <ng-content></ng-content>
+    </main>
 </ng-template>
 
 <!-- Footer Part -->
 <ng-template #footerTpl>
-<footer *ngIf="footer">
-    <ng-content select="klee-layout-footer,layout-footer"></ng-content>
-</footer>
+    <footer *ngIf="footer">
+        <ng-content select="klee-layout-footer,layout-footer"></ng-content>
+    </footer>
 </ng-template>
 
 <!-- Menu Part -->
 <ng-template #menuTpl>
-<p-sidebar [(visible)]="sideMenuVisible">
+    <p-sidebar [(visible)]="sideMenuVisible">
 
-    <aside>
-        <ng-content select="klee-layout-menu,layout-menu"></ng-content>
-    </aside>
-    
-</p-sidebar>
+        <aside>
+            <ng-content select="klee-layout-menu,layout-menu"></ng-content>
+        </aside>
+
+    </p-sidebar>
 </ng-template>

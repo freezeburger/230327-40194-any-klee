@@ -13,10 +13,13 @@ klee-layout-base{
 klee-layout-base>header{
     height: 10vh;
     background: var(--primary-600);
+    padding:5px;
+    color:white;
 }
 
 klee-layout-base>main{
     height: 80vh;
+    padding: 3vh;
 }
 
 klee-layout-base>footer{
