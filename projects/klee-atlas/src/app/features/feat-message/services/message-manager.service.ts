@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Inject } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+
 import { KMessageDTO } from '../interfaces/k-message.dto';
 import { API } from './values/api';
+
+import { BehaviorSubject, tap, map } from 'rxjs';
 
 @Injectable()
 export class MessageManagerService {
@@ -17,8 +19,12 @@ export class MessageManagerService {
   getMessagesId() {
     this.http
       .get<KMessageDTO[]>(API)
+      .pipe(
+        tap( data => console.log(data) ),
+        map( data => data.map( m => m.id ))
+      )
       .subscribe(
-        data => console.log(data)
+        data => this.messageIdList$.next(data)
       )
   }
 
