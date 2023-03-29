@@ -25,6 +25,7 @@ export abstract class MessageBaseService {
   }
 
   protected load(id:KMessageDTO['id']){
-    //this.http.get()
+    const url = `${API}/${id}`
+    this.http.get<KMessageDTO>(url).subscribe( m => this.message$.next(m) )
   }
 }

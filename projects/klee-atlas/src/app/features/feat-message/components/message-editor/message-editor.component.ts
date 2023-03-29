@@ -1,4 +1,4 @@
-import { Component, Input, inject, Self, SkipSelf, OnChanges} from '@angular/core';
+import { Component, Input, inject, Self, SkipSelf, OnChanges, SimpleChanges} from '@angular/core';
 import { KMessageDTO } from '../../interfaces/k-message.dto';
 import { MessageEditorService } from '../../services/message-editor.service';
 
@@ -17,7 +17,8 @@ export class MessageEditorComponent implements OnChanges{
     @Self() public editor:MessageEditorService,
   ){}
 
-  ngOnChanges(){
+  ngOnChanges(changes:SimpleChanges){
+    console.log(changes)
     this.editor.init(this.messageId)
   }
 }
