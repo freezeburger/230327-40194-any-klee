@@ -1,10 +1,16 @@
-<p>message-editor works!</p>
-<code>{{messageId}}</code>
-<hr>
-
+<h5>{{ messageId }}</h5>
 <code>{{editor.message$ | async | json}}</code>
-
-<hr>
 <code>{{editor.status$ | async  | json}}</code>
 
 
+<form>
+    <select name="priority">
+        <option *ngFor="let p of priorities | keyvalue">{{p.value}}</option>
+    </select>
+    <input name="title">
+    <textarea name="content"></textarea>
+    <button>
+        Save
+    </button>
+</form>
+<hr>
