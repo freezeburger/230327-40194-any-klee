@@ -20,12 +20,24 @@ export class MessageManagerService {
     this.http
       .get<KMessageDTO[]>(API)
       .pipe(
-        tap( data => console.log(data) ),
-        map( data => data.map( m => m.id ))
+        tap( this.log ),
+        map( this.mapToIds )
       )
-      .subscribe(
-        data => this.messageIdList$.next(data)
-      )
+      .subscribe( this.emitNextIds )
+  }
+
+  private emitNextIds = ( ids:number[]  ) => {
+    this.messageIdList$.next(ids)
+  }
+
+  private log = ( data : KMessageDTO[]) => {
+    console.groupCollapsed('MessageManagerService')
+    console.table(data) 
+    console.groupEnd()
+  }
+
+  private mapToIds = ( data : KMessageDTO[]):number[] => {
+    return data.map( m => m.id );
   }
 
 
